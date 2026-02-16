@@ -686,7 +686,7 @@ export default function App() {
                       <Briefcase size={24} className="text-slate-500" />
                     </div>
                     <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Profile Photo</p>
-                    <p className="text-[10px] text-slate-600 mt-2">Save image as src/assets/profile.png to view</p>
+                    <p className="text-[10px] text-slate-600 mt-2">Profile image linked from src/assets/profile.png</p>
                   </div>
                   {/* Glass Overlay on Image Bottom */}
                   <div className="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
