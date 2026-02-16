@@ -5,6 +5,7 @@ import blinkitImg from './assets/projects/blinkit-dashboard.png';
 import customerIntellImg from './assets/projects/customer-intelligence-dashboard.png';
 import netflixImg from './assets/projects/netflix-dashboard.png';
 import profileImg from './assets/profile.png';
+import resumePDF from './assets/resume.pdf';
 
 const DotGridCanvas = () => {
   const canvasRef = useRef(null);
@@ -204,7 +205,7 @@ export default function App() {
                 View My Projects
               </a>
               <a
-                href="/resume.pdf"
+                href={resumePDF}
                 download="Prasang_Jain_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
