@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ArrowRight, FileText, BarChart2, Database, Briefcase, Sparkles, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowRight, FileText, BarChart2, Database, Briefcase, Sparkles, Mail, Linkedin, Github, ExternalLink, Terminal } from 'lucide-react';
+import CaseStudy from './components/CaseStudy';
 import blinkitImg from './assets/projects/blinkit-dashboard.png';
 import customerIntellImg from './assets/projects/customer-intelligence-dashboard.png';
 import netflixImg from './assets/projects/netflix-dashboard.png';
@@ -155,6 +156,12 @@ const SideExplorer = () => {
 };
 
 export default function App() {
+  const [showCaseStudy, setShowCaseStudy] = useState(false);
+
+  if (showCaseStudy) {
+    return <CaseStudy onClose={() => setShowCaseStudy(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-[#020617] selection:bg-slate-700 selection:text-white relative overflow-x-hidden text-slate-300">
 
@@ -187,12 +194,12 @@ export default function App() {
             {/* Big Headline */}
             <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6 neon-glow max-w-4xl">
               Data Analyst <br />
-              <span className="text-primary font-medium block mt-2 text-2xl md:text-3xl tracking-widest uppercase">SQL • Python • Machine Learning • Power BI</span>
+              <span className="text-primary font-medium block mt-2 text-2xl md:text-3xl tracking-widest uppercase">SQL • Power BI • Excel • KPI Reporting</span>
             </h1>
 
             {/* Impact Statement Tagline */}
             <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mb-10 leading-relaxed italic border-l-2 border-primary/30 pl-6">
-              Turning complex data into measurable business impact through analytics and predictive modeling.
+              Translating raw business data into actionable KPIs and reporting solutions that drive operational efficiency.
             </p>
 
             {/* CTAs */}
@@ -225,8 +232,8 @@ export default function App() {
             >
               {[
                 { label: "Deloitte Experience", val: "Internship 2025", sub: "Data Analyst Role" },
-                { label: "ML Model Precision", val: "15% Error Reduction", sub: "ARIMA Demand Forecasting" },
-                { label: "Enterprise BI", val: "8,000+ Data Points", sub: "Blinkit Performance Monitoring" }
+                { label: "Reporting Efficiency", val: "25% Time Saved", sub: "SQL-Based Automation" },
+                { label: "Data Quality", val: "99%+ Accuracy", sub: "Validated KPI Pipelines" }
               ].map((stat, i) => (
                 <div key={i} className="bg-slate-900/40 border border-slate-800/40 p-4 rounded-xl flex flex-col justify-center">
                   <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">{stat.label}</p>
@@ -279,9 +286,13 @@ export default function App() {
                       <span className="text-primary mt-1">•</span>
                       <span className="font-medium">SQL Optimization:</span> Engineered complex analytical queries to retrieve and aggregate large datasets across multiple business units.
                     </li>
+                    <li className="flex gap-2 text-slate-300">
+                      <span className="text-primary mt-1">•</span>
+                      <span className="font-medium">Scale & Accuracy:</span> Processed and validated datasets exceeding 30,000+ records for enterprise reporting.
+                    </li>
                     <li className="flex gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span className="font-medium">Python Preprocessing:</span> Developed scalable cleaning scripts using Pandas/NumPy to ensure data integrity for internal reporting.
+                      <span className="font-medium">Data Workflow:</span> Developed data cleaning and validation scripts to ensure reporting accuracy across multiple segments.
                     </li>
                     <li className="flex gap-2">
                       <span className="text-primary mt-1">•</span>
@@ -329,7 +340,7 @@ export default function App() {
                 <div>
                   <h3 className="text-2xl font-bold text-white flex items-center gap-2">
                     <Sparkles size={20} className="text-primary" />
-                    Data Analytics & Machine Learning Projects
+                    Data Analytics & Business Intelligence Projects
                   </h3>
                   <p className="text-primary font-medium">Independent Projects</p>
                 </div>
@@ -339,10 +350,10 @@ export default function App() {
               </div>
 
               <div className="mt-6 text-sm text-slate-400 leading-relaxed grid gap-4 max-w-4xl">
-                <p>Built a <strong>Sales Demand Forecasting</strong> model using time-series analysis (ARIMA, ML models) to predict future sales trends.</p>
-                <p>Conducted <strong>Customer Intelligence Analysis</strong> using RFM and K-Means clustering for customer segmentation.</p>
-                <p>Developed a <strong>Retail Sales Analysis</strong> system using SQL to evaluate revenue trends and product performance.</p>
-                <p>Designed an interactive <strong>Netflix Dashboard</strong> using Power BI with DAX-based KPIs and data modeling.</p>
+                <p>Developed an <strong>Operations Performance Dashboard</strong> consolidating 15+ city datasets into structured KPI reports using SQL and Power BI.</p>
+                <p>Conducted <strong>Retail Sales Analysis</strong> on 50,000+ transactional records using SQL and Excel to evaluate revenue trends.</p>
+                <p>Built a <strong>Demand & Inventory Tracker</strong> using Excel and Python to optimize stock levels and reduce carry costs.</p>
+                <p>Designed an interactive <strong>Netflix Content Strategy Dashboard</strong> using Power BI for stakeholder reporting.</p>
               </div>
             </Motion.div>
           </div>
@@ -367,20 +378,25 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent z-10"></div>
                   <img
                     src={customerIntellImg}
-                    alt="Customer Intelligence Dashboard"
+                    alt="Customer Intelligence Dashboard Analysis"
                     className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                   />
                   <div className="absolute bottom-4 left-4 z-20">
-                    <span className="px-3 py-1 bg-primary text-black text-[10px] font-bold rounded-full uppercase tracking-wider shadow-lg">ML Clustering & Churn</span>
+                    <span className="px-3 py-1 bg-primary text-black text-[10px] font-bold rounded-full uppercase tracking-wider shadow-lg">Segment Analytics</span>
                   </div>
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Customer Intelligence</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                    Implemented RFM segmentation and K-Means clustering to analyze customer behavior. <span className="text-white">Identified 4 high-value segments contributing to 60% of total revenue</span> and developed churn modeling strategies.
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Problem:</span> Low visibility into customer churn and segment value distribution across marketing channels.
+                    </p>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Impact:</span> Delivered visibility into segment-level revenue, contributing to more focused marketing budget allocation.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {["Python", "Power BI", "K-Means", "RFM", "Churn Modeling"].map((tech, i) => (
+                    {["SQL", "Power BI", "Excel", "Segment Analysis", "Reporting"].map((tech, i) => (
                       <span key={i} className="text-[10px] font-medium px-2.5 py-1 bg-slate-800/80 text-slate-300 rounded border border-slate-700/50">
                         {tech}
                       </span>
@@ -414,9 +430,14 @@ export default function App() {
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Blinkit Sales Analysis</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                    Developed a comprehensive Power BI dashboard to analyze sales performance and outlet efficiency. <span className="text-white">Enabled instant visibility into 8,000+ data points</span> across different regions and outlet tiers.
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Problem:</span> Need for real-time monitoring of inventory vs. regional sales spikes for rapid logistics adjustment.
+                    </p>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Impact:</span> Provided instant visibility into 8,000+ data points for regional monitoring.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {["Power BI", "DAX", "Data Modeling", "ETL", "Dashboarding"].map((tech, i) => (
                       <span key={i} className="text-[10px] font-medium px-2.5 py-1 bg-slate-800/80 text-slate-300 rounded border border-slate-700/50">
@@ -427,6 +448,12 @@ export default function App() {
                   <a href="https://github.com/jain-prasang3010/blinkitAnalysis" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white group/link hover:text-primary transition-colors">
                     View Code <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
                   </a>
+                  <button
+                    onClick={() => setShowCaseStudy(true)}
+                    className="mt-4 w-full py-3 bg-primary/10 border border-primary/20 text-primary font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-primary hover:text-black transition-all flex items-center justify-center gap-2"
+                  >
+                    <ExternalLink size={14} /> Full Case Study
+                  </button>
                 </div>
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </Motion.div>
@@ -452,9 +479,14 @@ export default function App() {
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">Netflix Content Dashboard</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                    Developed an interactive Power BI dashboard to <span className="text-white">analyze 8,800+ titles</span>, exploring genre distribution and regional availability across 19 categories for content strategy.
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Problem:</span> Lack of centralized regional availability data for content acquisition teams.
+                    </p>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Impact:</span> Analyzed 8,800+ titles to optimize regional licensing strategies.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {["Power BI", "DAX", "Data Modeling", "Visualization", "Business Intelligence"].map((tech, i) => (
                       <span key={i} className="text-[10px] font-medium px-2.5 py-1 bg-slate-800/80 text-slate-300 rounded border border-slate-700/50">
@@ -483,20 +515,39 @@ export default function App() {
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <BarChart2 size={24} className="text-primary group-hover:scale-110 transition-transform" />
-                    <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">Sales Demand Forecasting</h3>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">Operations Performance Mapping</h3>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                    Developed a predictive framework using <strong>ARIMA (5,1,0)</strong> to forecast daily demand. <span className="text-white">Achieved a 15% reduction in prediction error (MAE: 503.49)</span> and optimized inventory planning by identifying seasonal decomposition patterns.
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Problem:</span> Lack of visibility across 15+ city datasets, causing delays in resource reallocation.
+                    </p>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Impact:</span> Improved reporting on delivery bottlenecks, enabling faster resource reallocation.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {["Python", "Pandas", "ARIMA", "Scikit-learn", "EDA"].map((tech, i) => (
+                    {["SQL", "Power BI", "Excel", "KPI Definition", "Zone Analytics"].map((tech, i) => (
                       <span key={i} className="text-[10px] font-medium px-2.5 py-1 bg-slate-800/80 text-slate-300 rounded border border-slate-700/50">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <a href="https://github.com/jain-prasang3010/sales-demand-forecasting" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white group/link hover:text-primary transition-colors">
-                    View Code <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+
+                  {/* Operational SQL Capability Proof */}
+                  <div className="mb-8 p-4 bg-slate-950/80 border border-slate-800 rounded-lg group/code">
+                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                      <Terminal size={12} className="text-primary" /> SQL Capability Proof:
+                    </p>
+                    <pre className="text-[10px] font-mono text-primary/80 leading-relaxed overflow-x-auto">
+                      {`SELECT city_zone, COUNT(order_id) as vol,
+       ROUND(AVG(fulfillment_time), 2) as kpi
+FROM ops_data 
+GROUP BY city_zone 
+ORDER BY vol DESC;`}
+                    </pre>
+                  </div>
+                  <a href="https://github.com/jain-prasang3010/operations-performance-tracker" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white group/link hover:text-primary transition-colors">
+                    View Project <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
                   </a>
                 </div>
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -513,11 +564,16 @@ export default function App() {
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Database size={24} className="text-primary group-hover:scale-110 transition-transform" />
-                    <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">Retail Sales Analysis (SQL)</h3>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">Retail Sales Analysis (50k+ Records)</h3>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                    Leveraged advanced SQL Window Functions to extract KPIs from 2,000+ transactions. <span className="text-white">Reduced manual reporting time by 25%</span> by optimizing complex joins and analytical query workflows.
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Problem:</span> Complex monthly audits required manual data consolidation from five disparate databases.
+                    </p>
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                      <span className="text-white font-bold block mb-1">Impact:</span> Automated repetitive data pulls, significantly reducing monthly manual reporting overhead.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {["SQL", "MySQL", "Data Cleaning", "Aggregations", "Query Optimization"].map((tech, i) => (
                       <span key={i} className="text-[10px] font-medium px-2.5 py-1 bg-slate-800/80 text-slate-300 rounded border border-slate-700/50">
@@ -552,12 +608,12 @@ export default function App() {
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Core Analytics</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Analytics & Reporting</h3>
               <ul className="space-y-3">
                 {[
-                  { label: "SQL", detail: "Joins, CTEs, Window Functions" },
-                  { label: "Python", detail: "Pandas, NumPy, Analysis" },
-                  { label: "Power BI", detail: "DAX, Data Modeling" }
+                  { label: "SQL", detail: "Window Functions, Joins, Query Optimization" },
+                  { label: "Excel", detail: "Pivot Tables, VLOOKUP, Power Query" },
+                  { label: "Power BI", detail: "DAX, KPI Modeling, ETL Pipelines" }
                 ].map((skill, i) => (
                   <li key={i} className="group/item">
                     <p className="text-sm font-bold text-slate-200 group-hover/item:text-primary transition-colors">{skill.label}</p>
@@ -578,13 +634,13 @@ export default function App() {
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">🤖</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Machine Learning</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Business Intelligence</h3>
               <ul className="space-y-3">
                 {[
-                  "Regression & Classification",
-                  "Random Forest & Boosting",
-                  "Model Evaluation (ROC-AUC)",
-                  "Cross-validation & Tuning"
+                  "KPI Definition & Monitoring",
+                  "Automated Reporting Workflows",
+                  "Data Cleaning (ETL)",
+                  "Stakeholder Communication"
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
                     <div className="w-1 h-1 bg-primary rounded-full"></div>
@@ -605,13 +661,13 @@ export default function App() {
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">⚙️</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Data Engineering</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Data Management</h3>
               <ul className="space-y-3">
                 {[
-                  "Automated Data ETL",
-                  "Feature Engineering",
-                  "Data Cleaning & Validation",
-                  "Pipeline Architecture"
+                  "Data Quality Auditing",
+                  "Python Data Transformation",
+                  "Requirement Gathering",
+                  "Dashboard Maintenance"
                 ].map((skill, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
                     <div className="w-1 h-1 bg-primary rounded-full"></div>
@@ -629,7 +685,7 @@ export default function App() {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center gap-3"
           >
-            {["Git & GitHub", "VS Code", "Jupyter Notebook", "Power BI Desktop", "Excel (VLOOKUP, Pivot Tables)"].map((tool, i) => (
+            {["Git & GitHub", "MySQL Workbench", "Power BI Desktop", "Advanced Excel", "Jupyter Notebook"].map((tool, i) => (
               <span key={i} className="px-5 py-2 bg-slate-800/30 border border-slate-700/50 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:border-primary/50 transition-all">
                 {tool}
               </span>
@@ -652,11 +708,11 @@ export default function App() {
               <SectionHeader index="04" title="About Me" watermark="PROFILE" />
 
               <p className="text-xl md:text-2xl font-light text-white leading-snug mb-6">
-                I specialize in <span className="text-primary font-medium">analyzing structured datasets</span>, building predictive models, and designing dashboards that <span className="text-primary font-medium">improve reporting efficiency</span> and enable data-driven strategy.
+                I specialize in <span className="text-primary font-medium">operational reporting</span>, KPI definition, and designing dashboards that <span className="text-primary font-medium">automate business decisions</span> and improve strategy.
               </p>
 
               <p className="text-base text-slate-400 leading-relaxed mb-6">
-                I enjoy working with structured and unstructured data to uncover patterns, trends, and insights that support strategic decision-making. Through hands-on projects, I have developed practical experience in <span className="text-white">SQL, Python, and Power BI</span> to analyze data and build meaningful dashboards.
+                I focus on transforming structured business data into clear, measurable performance insights. Through hands-on projects, I have developed practical experience in <span className="text-white">SQL, Power BI, and Advanced Excel</span> to automate reporting and drive data-informed decisions.
               </p>
             </Motion.div>
 
@@ -706,11 +762,11 @@ export default function App() {
 
               <ul className="space-y-4 w-full">
                 {[
-                  "Analyze large datasets for insights",
-                  "Write optimized SQL queries",
-                  "Python data transformation",
+                  "Design automated KPI reports",
+                  "Write complex SQL queries",
+                  "Excel-based data analysis",
                   "Build Power BI dashboards",
-                  "Data-driven business solutions"
+                  "Clean and consolidate data"
                 ].map((skill, index) => (
                   <li key={index} className="flex gap-3 group items-center">
                     <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center border border-slate-700/50 rounded text-[10px] text-primary group-hover:bg-primary group-hover:text-black transition-all">
@@ -748,10 +804,10 @@ export default function App() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { title: "Define", desc: "Aligning analytical goals with business KPIs." },
-                { title: "Extract", desc: "SQL-driven data retrieval and ETL workflows." },
-                { title: "Analyze", desc: "Statistical modeling and predictive insights." },
-                { title: "Deploy", desc: "Interactive BI solutions for stakeholders." }
+                { title: "Define", desc: "Aligning reporting goals with operational business KPIs." },
+                { title: "Extract", desc: "SQL-driven data retrieval and automated ETL workflows." },
+                { title: "Analyze", desc: "KPI evaluation, trend analysis, and performance monitoring." },
+                { title: "Deploy", desc: "Structured BI solutions and dashboard maintenance." }
               ].map((step, i) => (
                 <Motion.div
                   key={i}
@@ -849,7 +905,7 @@ export default function App() {
                     <input
                       type="text"
                       id="name"
-                      placeholder="John Doe"
+                      placeholder="Name"
                       className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
                     />
                   </div>
@@ -858,7 +914,7 @@ export default function App() {
                     <input
                       type="email"
                       id="email"
-                      placeholder="john@example.com"
+                      placeholder="Email Address"
                       className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
                     />
                   </div>
